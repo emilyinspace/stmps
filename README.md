@@ -1,5 +1,6 @@
 # STMPS (Subsonic Terminal Music Player S)
 
+
 A terminal client for *sonic music servers. Inspired by ncmpcpp and musickube.
 
 ## Features
