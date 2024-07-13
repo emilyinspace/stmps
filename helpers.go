@@ -10,6 +10,15 @@ const (
 	clientVersion = "0.9.9"
 )
 
+var (
+	clientCommitHash string
+)
+
+// Set commit hash
+func SetCommitHash(hash string) {
+	clientCommitHash = hash
+}
+
 // if the first argument isn't empty, return it, otherwise return the second
 func stringOr(firstChoice string, secondChoice string) string {
 	if firstChoice != "" {

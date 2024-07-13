@@ -91,7 +91,7 @@ func InitGui(indexes *[]subsonic.SubsonicIndex,
 	ui.pages = tview.NewPages()
 
 	// status text at the top
-	statusLeft := fmt.Sprintf("[::b]%s[::-] v%s", clientName, clientVersion)
+	statusLeft := fmt.Sprintf("[::b]%s[::-] v%s (%s)", clientName, clientVersion, clientCommitHash)
 	ui.startStopStatus = tview.NewTextView().SetText(statusLeft).
 		SetTextAlign(tview.AlignLeft).
 		SetDynamicColors(true).
