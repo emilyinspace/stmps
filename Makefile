@@ -17,7 +17,7 @@ tidy:
 # Build the application
 .PHONY: build
 build: tidy
-	go build -ldflags "-s -w -X main.commitHash=`git rev-parse --short HEAD`" -o=./${BINARY_NAME} ${MAIN_PACKAGE_PATH}
+	go build -ldflags "-s -w -X main.clientCommitHash=`git rev-parse --short HEAD`" -o=./${BINARY_NAME} ${MAIN_PACKAGE_PATH}
 
 # Build the application and run it without arguments
 .PHONY: run
