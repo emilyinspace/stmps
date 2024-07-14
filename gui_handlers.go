@@ -32,7 +32,7 @@ func (ui *Ui) handlePageInput(event *tcell.EventKey) *tcell.EventKey {
 	case '?':
 		ui.ShowHelp()
 
-	case 'Q':
+	case 'q':
 		ui.Quit()
 
 	case 'r':
