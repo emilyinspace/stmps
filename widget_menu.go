@@ -43,7 +43,7 @@ func (ui *Ui) createMenuWidget() (m *MenuWidget) {
 	m.updatePageButtons()
 
 	// help and quit button on the right
-	quitButton := tview.NewButton("Q: quit").
+	quitButton := tview.NewButton("q: quit").
 		SetStyle(m.buttonStyle).
 		SetActivatedStyle(m.quitActiveStyle).
 		SetSelectedFunc(func() {
