@@ -1,2 +1,2 @@
-# STMPS (Subsonic Terminal Music Player S)
-a fork with very minor changes
+# STMPS 
+This is a fork of another fork because i like doing stupid shit sometimes
