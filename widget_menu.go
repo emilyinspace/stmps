@@ -5,6 +5,7 @@ import (
 
 	"github.com/gdamore/tcell/v2"
 	"github.com/rivo/tview"
+	"github.com/spf13/viper"
 )
 
 type MenuWidget struct {
@@ -42,6 +43,16 @@ func (ui *Ui) createMenuWidget() (m *MenuWidget) {
 	m.createPageButtons()
 	m.updatePageButtons()
 
+	// Read config to get the banner
+	readConfig()
+
+	// Add short text for fun
+	msgButton := tview.NewButton(viper.GetString("misc.banner")).
+		SetStyle(m.buttonStyle).
+		SetActivatedStyle(m.buttonStyle).
+		SetSelectedFunc(func() {
+		})
+
 	// help and quit button on the right
 	quitButton := tview.NewButton("q: quit").
 		SetStyle(m.buttonStyle).
@@ -60,6 +71,7 @@ func (ui *Ui) createMenuWidget() (m *MenuWidget) {
 	m.buttonsRight = tview.NewFlex().
 		SetDirection(tview.FlexColumn)
 	m.buttonsRight.AddItem(nil, 0, 1, false) // fill space to right-align the buttons
+	m.buttonsRight.AddItem(msgButton, 18, 0, false)
 	m.buttonsRight.AddItem(helpButton, 9, 0, false)
 	m.buttonsRight.AddItem(quitButton, 9, 0, false)
 
