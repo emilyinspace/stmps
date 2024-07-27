@@ -2,29 +2,31 @@
 MAIN_PACKAGE_PATH := ./
 BINARY_NAME := stmps
 
-# Print help message
-.PHONY: help
+
+## help: Print help message
 help:
 	@echo 'Usage:'
 	@sed -n 's/^##//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/ /'
 
-# Format code and tidy modfile
+
+## tidy: Format code and tidy module deps
 .PHONY: tidy
-tidy:
+tidy: 
 	go fmt ./...
 	go mod tidy -v
 
-# Build the application
+
+## build: Build the application
 .PHONY: build
 build: tidy
-	go build -ldflags "-s -w -X main.clientCommitHash=`git rev-parse --short HEAD`" -o=./${BINARY_NAME} ${MAIN_PACKAGE_PATH}
+	go build -ldflags "-s -w -X main.commitHash=`git rev-parse --short HEAD`" -o=./${BINARY_NAME} ${MAIN_PACKAGE_PATH}
 
-# Build the application and run it without arguments
+## run: Build the application and run it without arguments
 .PHONY: run
 run: build
 	./${BINARY_NAME}
 
-# Install locally
+## install: Install binary locally
 .PHONY: install
 install: build
 	mkdir -pv ${HOME}/.local/bin
