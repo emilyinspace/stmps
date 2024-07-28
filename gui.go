@@ -170,7 +170,7 @@ func InitGui(indexes *[]subsonic.SubsonicIndex,
 
 	ui.app.SetRoot(rootFlex, true).
 		SetFocus(rootFlex).
-		EnableMouse(true)
+		EnableMouse(false)
 
 	return ui
 }
