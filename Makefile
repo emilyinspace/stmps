@@ -28,7 +28,7 @@ run: build
 
 ## install: Install binary locally
 .PHONY: install
-install: build
+install: 
 	mkdir -pv ${HOME}/.local/bin
 	cp -v ./${BINARY_NAME} ${HOME}/.local/bin
 
